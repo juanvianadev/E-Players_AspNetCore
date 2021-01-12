@@ -14397,6 +14397,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\juanv\\Desktop\\DEV\\back-end\\MVC\\E-Players_AspNetCore\\Views\\Equipe\\index.cshtml",
+      "TargetPath": "Views\\Equipe\\index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\juanv\\Desktop\\DEV\\back-end\\MVC\\E-Players_AspNetCore\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
