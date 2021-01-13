@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using E_Players_AspNetCore.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -27,9 +28,31 @@ namespace E_Players_AspNetCore.Controllers
             Equipe novaEquipe = new Equipe();
             novaEquipe.IdEquipe = Int32.Parse( form["IdEquipe"] );
             novaEquipe.Nome =  form["Nome"];
-            novaEquipe.Imagem = form["Imagem"];
+            
+            if(form.Files.Count > 0){
+                var file = form.Files[0];
+                var folder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/Equipes");
+
+                if (!Directory.Exists(folder)){
+                    Directory.CreateDirectory(folder);
+                }
+
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img" folder, file.Name);
+                using(var stream = new FileStream(path, FileMode.Create)){
+                    file.CopyTo(stream);
+                }
+                novaEquipe.Imagem = file.FileName;
+            }
 
             equipeModel.Create(novaEquipe);
+            ViewBag.Equipes = equipeModel.ReadAll();
+
+            return LocalRedirect("~/Equipe/Listar");
+        }
+
+        [Route("{id}")]
+        public IActionResult Excluir(int id){
+            equipeModel.Delete(id);
             ViewBag.Equipes = equipeModel.ReadAll();
 
             return LocalRedirect("~/Equipe/Listar");
