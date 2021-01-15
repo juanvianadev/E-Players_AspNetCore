@@ -37,7 +37,7 @@ namespace E_Players_AspNetCore.Controllers
                     Directory.CreateDirectory(folder);
                 }
 
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img" folder, file.Name);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/", folder, file.FileName);
                 using(var stream = new FileStream(path, FileMode.Create)){
                     file.CopyTo(stream);
                 }
