@@ -14425,6 +14425,11 @@
       "FilePath": "c:\\Users\\fic\\Desktop\\manha\\juan\\E-Players_AspNetCore\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\fic\\Desktop\\manha\\juan\\E-Players_AspNetCore\\Views\\Jogador\\index.cshtml",
+      "TargetPath": "Views\\Jogador\\index.cshtml",
+      "FileKind": "mvc"
     }
   ],
   "SerializationFormat": "0.2"
