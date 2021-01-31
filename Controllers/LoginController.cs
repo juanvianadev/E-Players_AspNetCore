@@ -9,12 +9,7 @@ namespace EPlayers_AspNetCore.Controllers
     public class LoginController : Controller
     {
         [TempData]
-        public LoginController(string mensagem) 
-        {
-            this.Mensagem = mensagem;
-               
-        }
-                public string Mensagem { get; set; }
+        public string Mensagem { get; set; }
         
         
         Jogador jogadorModel = new Jogador();
@@ -28,7 +23,7 @@ namespace EPlayers_AspNetCore.Controllers
         public IActionResult Logar(IFormCollection form)
         {
             // Lemos todos os arquivos do CSV
-            List<string> csv = jogadorModel.ReadAllLinesCSV(jogadorModel.PATH);
+            List<string> csv = Jogador.ReadAllLinesCSV(Jogador.PATH);
 
             // Verificamos se as informações passadas existe na lista de string
             var logado = 
