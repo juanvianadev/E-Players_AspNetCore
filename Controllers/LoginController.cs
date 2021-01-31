@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using E_Players_AspNETCore.Models;
+using E_Players_AspNetCore.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,7 +9,12 @@ namespace EPlayers_AspNetCore.Controllers
     public class LoginController : Controller
     {
         [TempData]
-        public string Mensagem { get; set; }
+        public LoginController(string mensagem) 
+        {
+            this.Mensagem = mensagem;
+               
+        }
+                public string Mensagem { get; set; }
         
         
         Jogador jogadorModel = new Jogador();

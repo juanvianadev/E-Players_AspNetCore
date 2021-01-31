@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using EPlayers_AspNetCore.Models;
+using E_Players_AspNetCore.Models;
 
 namespace EPlayers_AspNetCore.Interfaces
 {

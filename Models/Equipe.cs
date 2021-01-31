@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
-using E_Players_AspNetCore.iterfaces;
+using EPlayers_AspNetCore.Interfaces;
 
 namespace E_Players_AspNetCore.Models
 {
