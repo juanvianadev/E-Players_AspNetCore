@@ -3,31 +3,33 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using E_Players_AspNetCore.Models;
+using E_Players_AspNETCore.Models;
+using EPlayers_AspNetCore.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace E_Players_AspNetCore.Controllers
+namespace E_Players_AspNETCore.Controllers
 {
     [Route("Jogador")]
-    public class JogadorController
+    public class JogadorController : Controller
     {
+
         Jogador jogadorModel = new Jogador();
-         public IActionResult Index()
+        Equipe equipeModel = new Equipe();
+
+        public IActionResult Index()
         {
+            ViewBag.Equipes = equipeModel.ReadAll();
             ViewBag.Jogadores = jogadorModel.ReadAll();
             return View();
         }
 
-        public IActionResult View()
-        {
-            throw new NotImplementedException();
-        }
-
+        [Route("Cadastrar")]
         public IActionResult Cadastrar(IFormCollection form)
         {
             Jogador novoJogador     = new Jogador();
             novoJogador.IdJogador   = Int32.Parse(form["IdJogador"]);
+            novoJogador.IdEquipe    = Int32.Parse(form["IdEquipe"]);
             novoJogador.Nome        = form["Nome"];
             novoJogador.Email       = form["Email"];
             novoJogador.Senha       = form["Senha"];
@@ -38,9 +40,5 @@ namespace E_Players_AspNetCore.Controllers
             return LocalRedirect("~/Jogador");
         }
 
-        private IActionResult LocalRedirect(string v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

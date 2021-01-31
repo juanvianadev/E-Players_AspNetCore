@@ -1,9 +1,10 @@
+@using E_Players_AspNETCore.Models
 @model Jogador
     @{
         ViewData["Title"] = "Jogadores";
     }
 
-    <div class="titulo_pagina">
+<div class="titulo_pagina">
     <h1>cadastro de @ViewData["Title"]</h1>
 </div>
 
@@ -16,7 +17,13 @@
 
     <div class="campo">
         <label>ID Equipe</label>
-        <input type="text" name="IdEquipe" />
+        <select name="IdEquipe" id="Equipe">
+            <option value="0">Selecione uma opção..</option>
+            @foreach (var item in ViewBag.Equipes)
+            {
+                <option value="@item.IdEquipe">@item.Nome</option>
+            }
+        </select>
     </div>
 
     <div class="campo">
@@ -53,4 +60,3 @@
         }
     </tbody>
 </table>
-<a class="navbar-brand" asp-area="" asp-controller="Jogador" asp-action="Index">Jogadores</a>
